@@ -3,9 +3,9 @@ interface Props {
 }
 export default function Layout({ children }: Props) {
   return (
-    <div className=" h-full bg-slate-100">
+    <div className="bg-[#fff] h-[100vh] w-[100vw]">
       {/* Navbar */}
-      <main className="pt-40 pb-20 bg-slate-100">{children}</main>
+      <main className="pt-40 pb-20">{children}</main>
     </div>
   );
 }
