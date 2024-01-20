@@ -34,18 +34,18 @@ export default function MarketingPage() {
         <h1 className="text-3xl text-[#4fb4b1] md:text-6xl text-center mb-6">
           Taskify helps team move
         </h1>
-        <div className="text-3xl md:text-6xl bg-gradient-to-r text-white w-fit from-fuchsia-600 to-pink-600 px-4 p-2 rounded-md">
+        <div className="text-3xl md:text-6xl bg-gradient-to-r text-white w-fit from-[#a5e5ec] to-[#4fb4b1] px-4 p-2 rounded-md">
           work forward
         </div>
       </div>
       <div
         className={`${cn(
           textFont.className,
-          "text-sm md:text-x text-neutral-300 max-w-xs md:max-w-2xl text-center m-auto break-words"
+          "text-sm md:text-xl text-neutral-300 max-w-xs md:max-w-2xl text-center m-auto break-words"
         )}`}
       >
-        协作、管理项目并达到新的工作效率高峰。从高楼大厦到家庭办公室，您的团队的工作方式各不相同
-        Taskify 可以帮您实现这一切
+        Collaborate, manage projects and reach new peaks of productivity. From high-rise buildings to home offices, your team works differently!
+        Taskify can help you do it all
       </div>
       <Button className="bg-[#4fb4b1] mt-4" size="lg">
         <Link href="/sign-up">Get Taskfiy for free</Link>
