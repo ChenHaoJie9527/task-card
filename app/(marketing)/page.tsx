@@ -27,11 +27,11 @@ export default function MarketingPage() {
           "flex items-center justify-center flex-col mb-4"
         )}`}
       >
-        <div className="mb-4 flex items-center border shadow-sm p-4 bg-[#fff] text-[#a5e645ec] rounded-full uppercase text-center">
+        <div className="mb-4 flex items-center border shadow-sm p-4 bg-[#fff] text-[#4fb4b1] rounded-full uppercase text-center">
           <Medal className="h-6 w-6 mr-2" />
           <span>No 1 Task Managment</span>
         </div>
-        <h1 className="text-3xl text-[#a5e645ec] md:text-6xl text-center mb-6">
+        <h1 className="text-3xl text-[#4fb4b1] md:text-6xl text-center mb-6">
           Taskify helps team move
         </h1>
         <div className="text-3xl md:text-6xl bg-gradient-to-r text-white w-fit from-fuchsia-600 to-pink-600 px-4 p-2 rounded-md">
@@ -47,7 +47,7 @@ export default function MarketingPage() {
         协作、管理项目并达到新的工作效率高峰。从高楼大厦到家庭办公室，您的团队的工作方式各不相同
         Taskify 可以帮您实现这一切
       </div>
-      <Button className="bg-[#a5e645ec] mt-4" size="lg">
+      <Button className="bg-[#4fb4b1] mt-4" size="lg">
         <Link href="/sign-up">Get Taskfiy for free</Link>
       </Button>
     </div>
