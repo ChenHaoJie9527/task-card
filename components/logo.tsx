@@ -14,7 +14,7 @@ export default function Logo() {
     <Link href="/">
       <div className="hover:opacity-70 hidden md:flex items-center gap-x-0 transition-all">
         <Image src="/logo.png" alt="logo" width={50} height={50}></Image>
-        <p className={cn(inter.className, 'text-lg pb-1 text-neutral-400')}>Taskfiy</p>
+        <p className={cn(inter.className, "text-lg pb-1 text-[#4fb4b1]")}>Taskfiy</p>
       </div>
     </Link>
   );
