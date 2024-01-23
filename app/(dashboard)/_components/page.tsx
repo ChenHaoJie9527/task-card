@@ -15,7 +15,7 @@ const rootBoxStyle: CSSProperties = {
 
 export const Navbar = () => {
   return (
-    <nav className="z-50 fixed top-0 w-full h-14 px-4 shadow-sm border-b flex items-center bg-white">
+    <nav className="z-50 fixed top-0 w-full h-14 shadow-sm border-b flex items-center bg-white">
       {/* TODO: Mobile Sidebar */}
 
       <div className="flex items-center gap-x-4">
