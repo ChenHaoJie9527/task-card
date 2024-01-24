@@ -1,8 +1,15 @@
 "use client";
 
-import { AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ReactNode } from "react";
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Layout, Activity, CreditCard, Settings } from "lucide-react";
+import Link from "next/link";
 
 export type OrganizationResource = {
   id: string;
@@ -19,8 +26,38 @@ interface NavItemProps {
   organization: OrganizationResource;
 }
 
+type RoutesProps = {
+  label: string;
+  icon: ReactNode;
+  href: string;
+}[];
+
 const NavItem = (props: NavItemProps) => {
   const { onExpend, isActive, isExpended, organization } = props;
+
+  const routes: RoutesProps = [
+    {
+      label: "Boards",
+      icon: <Layout className="h-4 w-4 mr-2" />,
+      href: `/organizations/${organization.id}`,
+    },
+    {
+      label: "Activity",
+      icon: <Activity className="h-4 w-4 mr-2" />,
+      href: `/organizations/${organization.id}/Activity`,
+    },
+    {
+      label: "Settings",
+      icon: <Settings className="h-4 w-4 mr-2" />,
+      href: `/organizations/${organization.id}/settings`,
+    },
+    {
+      label: "Billing",
+      icon: <CreditCard className="h-4 w-4 mr-2" />,
+      href: `/organizations/${organization.id}/billing`,
+    },
+  ];
+
   return (
     <AccordionItem value={organization.id} className="border-none">
       <AccordionTrigger
@@ -38,9 +75,19 @@ const NavItem = (props: NavItemProps) => {
               className="rounded-sm object-cover"
             />
           </div>
-          <span>{organization.name}</span>
+          <span className="font-medium text-sm">{organization.name}</span>
         </div>
       </AccordionTrigger>
+      <AccordionContent>
+        {routes.map((item) => {
+          return (
+            <div className="flex items-center h-10 w-full" key={item.label}>
+              <span>{item.icon}</span>
+              <Link href={item.href}>{item.label}</Link>
+            </div>
+          );
+        })}
+      </AccordionContent>
     </AccordionItem>
   );
 };
