@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import {
   AccordionContent,
   AccordionItem,
@@ -32,31 +33,36 @@ type RoutesProps = {
   href: string;
 }[];
 
-const NavItem = (props: NavItemProps) => {
-  const { onExpend, isActive, isExpended, organization } = props;
-
-  const routes: RoutesProps = [
+function createRoutes(org: OrganizationResource) {
+  return [
     {
       label: "Boards",
       icon: <Layout className="h-4 w-4 mr-2" />,
-      href: `/organizations/${organization.id}`,
+      href: `/organizations/${org.id}`,
     },
     {
       label: "Activity",
       icon: <Activity className="h-4 w-4 mr-2" />,
-      href: `/organizations/${organization.id}/Activity`,
+      href: `/organizations/${org.id}/Activity`,
     },
     {
       label: "Settings",
       icon: <Settings className="h-4 w-4 mr-2" />,
-      href: `/organizations/${organization.id}/settings`,
+      href: `/organizations/${org.id}/settings`,
     },
     {
       label: "Billing",
       icon: <CreditCard className="h-4 w-4 mr-2" />,
-      href: `/organizations/${organization.id}/billing`,
+      href: `/organizations/${org.id}/billing`,
     },
   ];
+}
+
+const NavItem = (props: NavItemProps) => {
+  const { onExpend, isActive, isExpended, organization } = props;
+  const router = useRouter();
+  const pathName = usePathname();
+  const routes: RoutesProps = createRoutes(organization);
 
   return (
     <AccordionItem value={organization.id} className="border-none">
