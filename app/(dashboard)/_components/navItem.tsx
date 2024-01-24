@@ -10,7 +10,6 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Layout, Activity, CreditCard, Settings } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export type OrganizationResource = {

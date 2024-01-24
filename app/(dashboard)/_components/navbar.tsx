@@ -3,6 +3,7 @@ import Logo from "@/components/logo";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import MobileSidebar from "./mobile-sidebar";
 
 const ORGANIZATIONURL = "/organization/:id";
 const LEAVEORGANIZATIONURL = "/select-org";
@@ -14,6 +15,7 @@ const rootBoxStyle: CSSProperties = {
 const Navbar = () => {
   return (
     <nav className="z-50 fixed top-0 w-full px-2 md:pr-5 h-14 shadow-sm border-b flex items-center bg-white">
+      <MobileSidebar className="block md:hidden" />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:block">
           <Logo />
