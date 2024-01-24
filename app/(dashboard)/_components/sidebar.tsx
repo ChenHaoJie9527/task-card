@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { useLocalStorageState } from "ahooks";
+import { useLocalStorage } from "usehooks-ts";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -14,7 +14,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
-  const [expended, setExpended] = useLocalStorageState<Record<string, any>>(
+  const [expended, setExpended] = useLocalStorage<Record<string, any>>(
     storageKey,
     {}
   );
@@ -52,7 +52,7 @@ const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
     !isLoadedOrganizationList ||
     userMemberships.isLoading
   ) {
-    return <Skeleton className="h-10 w-[250px] bg-[#ddf1f1]" />;
+    return <Skeleton className="h-10 w-[250px]" />;
   }
   return (
     <>
@@ -73,11 +73,11 @@ const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
         {userMemberships.data.map((item) => {
           return (
             <NavItem
-              key={item.organization.id}
+              key={item.id}
               onExpend={onExpend}
               isActive={activeOrganization?.id === item.organization.id}
               organization={item.organization as OrganizationResource}
-              isExpended={expended && expended[item.organization.id]}
+              isExpended={expended[item.organization.id]}
             />
           );
         })}
