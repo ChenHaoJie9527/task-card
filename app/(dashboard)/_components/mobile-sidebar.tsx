@@ -4,6 +4,8 @@ import { useMobileSidebarStore } from "@/hooks/use-mobile-sidebar";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const MobileSidebar = ({
   className,
@@ -25,8 +27,10 @@ const MobileSidebar = ({
     return null;
   }
   return (
-    <div className={cn("rounded-md bg-muted", className)} {...props}>
-      MobileSidebar
+    <div className={cn("", className)} {...props}>
+      <Button onClick={() => onOpen()} variant="ghost" size="sm">
+        <Menu className="w-4 h-4" />
+      </Button>
     </div>
   );
 };
