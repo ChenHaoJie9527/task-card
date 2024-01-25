@@ -1,5 +1,31 @@
-import { OrganizationProfile } from "@clerk/nextjs";
+"use client";
+
+import {
+  OrganizationProfile,
+  useOrganization,
+  useOrganizationList,
+} from "@clerk/nextjs";
+import { Skeleton } from "@/components/ui/skeleton";
+
 export default function SettingsPage() {
+  const { isLoaded: isLoadedOrganization } = useOrganization();
+  const { userMemberships, isLoaded: isLoadedOrganizationList } =
+    useOrganizationList({
+      userMemberships: {
+        infinite: true,
+      },
+    });
+  if (
+    !isLoadedOrganization ||
+    !isLoadedOrganizationList ||
+    userMemberships.isLoading
+  ) {
+    return (
+      <div className="w-full h-[100vh] flex flex-col bg-[#fbfbfb]">
+        <Skeleton className="w-full h-96" />
+      </div>
+    );
+  }
   return (
     <div className="w-full">
       <OrganizationProfile
