@@ -22,7 +22,8 @@ const Navbar = () => {
         </div>
         <Button
           size="sm"
-          className="rounded-sm hidden md:block h-auto px-2 py-1.5 bg-[#4fb4b1]"
+          className="rounded-sm hidden md:block h-auto px-2 py-1.5 bg-sky-800 text-white"
+          variant="ghost"
         >
           Create
         </Button>
