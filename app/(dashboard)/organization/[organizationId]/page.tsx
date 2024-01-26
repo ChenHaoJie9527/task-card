@@ -21,8 +21,7 @@ export default async function OrganizationPage({ params }: { params: any }) {
       </Button>
       {boardList.map((board) => (
         <div key={board.id} className="flex items-center justify-start">
-          <span>{board.id}: </span>
-          <span>{board.title}</span>
+          <div>name: {board.title}</div>
         </div>
       ))}
     </form>
