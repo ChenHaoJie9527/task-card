@@ -1,19 +1,9 @@
-import { db } from "@/db";
+import { create } from "@/actions/create-board";
+import { Button } from "@/components/ui/button";
 
 export default function OrganizationPage({ params }: { params: any }) {
-  const action = async (form: FormData) => {
-    "use server";
-
-    const title = form.get("title") as string;
-    // TODO: create board in to title
-    await db.board.create({
-      data: {
-        title,
-      },
-    });
-  };
   return (
-    <form action={action}>
+    <form action={create}>
       <input
         type="text"
         id="title"
@@ -22,6 +12,9 @@ export default function OrganizationPage({ params }: { params: any }) {
         className="border"
         placeholder="pleas title"
       />
+      <Button type="submit" size="sm">
+        submit
+      </Button>
     </form>
   );
 }
