@@ -1,10 +1,10 @@
 "use server";
 
 import { db } from "@/db";
+import { createBoard } from "@/zod";
 
 export const create = async (form: FormData) => {
-  const title = form.get("title") as string;
-  // TODO: create board in to title
+  const { title } = createBoard.parse({ title: form.get("title") });
   await db.board.create({
     data: {
       title,
