@@ -1,8 +1,8 @@
 "use client";
 import { create } from "@/actions/create-board";
-import { Button } from "@/components/ui/button";
 import { useFormState } from "react-dom";
 import FormInput from "../form-input";
+import FormButton from "./form-button";
 
 export default function Form() {
   const initialState = {
@@ -16,9 +16,7 @@ export default function Form() {
       <div className="flex flex-col space-y-2">
         <FormInput errors={state?.errors} />
       </div>
-      <Button type="submit" size="sm">
-        submit
-      </Button>
+      <FormButton />
     </form>
   );
 }
